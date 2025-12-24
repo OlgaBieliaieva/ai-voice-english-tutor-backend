@@ -9,6 +9,11 @@ on:
 permissions:
   contents: read
 
+env:
+  LLM_PROVIDER: groq
+  LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+  LLM_MODEL: llama-3.1-8b-instant
+
 jobs:
   build:
     runs-on: ubuntu-latest
