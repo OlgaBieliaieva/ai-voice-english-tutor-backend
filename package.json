@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/OlgaBieliaieva/ai-voice-english-tutor-backend#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^17.2.3",
     "express": "^5.2.1",
     "groq-sdk": "^0.37.0"
