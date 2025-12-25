@@ -1,5 +1,6 @@
 import Groq from "groq-sdk";
 import { llmConfig } from "../config/llm.config.js";
+import { chatWithGrammarFeedbackPrompt } from "../prompts/chatWithFeedback.prompt.js";
 
 let client;
 
@@ -12,6 +13,7 @@ if (llmConfig.provider === "groq") {
 }
 
 export async function sendPrompt(message) {
+  const prompt = chatWithGrammarFeedbackPrompt(message);
   try {
     const response = await client.chat.completions.create({
       model: llmConfig.model,
@@ -23,7 +25,7 @@ export async function sendPrompt(message) {
         },
         {
           role: "user",
-          content: message,
+          content: prompt,
         },
       ],
     });
